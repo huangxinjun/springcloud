@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.switchvov.springcloud</groupId>
+    <artifactId>eureka-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>eureka-parent</name>
+    <description>Spring Cloud Eureka 父工程</description>
+
+    <modules>
+        <!-- eureka 服务 -->
+        <module>eureka-server</module>
+        <module>eureka-server-docker</module>
+
+        <!-- config 服务 -->
+        <module>config-server</module>
+        <module>config-server-bus-rabbitmq</module>
+        <module>config-server-bus-kafka</module>
+
+        <!-- config 客户端(使用者) -->
+        <module>config-client</module>
+        <module>config-client-bus-rabbitmq</module>
+        <module>config-client-bus-kafka</module>
+
+        <!-- hello服务接口 -->
+        <module>spring-cloud-hello-service-api</module>
+
+        <!-- hello服务提供者 -->
+        <module>spring-cloud-hello</module>
+        <module>spring-cloud-hello-feign</module>
+
+        <!-- hello服务消费者 -->
+        <module>spring-cloud-eureka-consumer</module>
+        <module>spring-cloud-eureka-consumer-custom-ribbon</module>
+        <module>spring-cloud-eureka-consumer-custom-ribbon-properties</module>
+        <module>spring-cloud-eureka-consumer-custom-ribbon-properties-hystrix</module>
+        <module>spring-cloud-eureka-consumer-custom-ribbon-properties-hystrix-rabbitmq</module>
+        <module>spring-cloud-eureka-consumer-custom-feign</module>
+
+        <!-- hystrix 仪表盘 -->
+        <module>spring-cloud-hystrix-dashboard</module>
+
+        <!-- turbine 集群监控 -->
+        <module>spring-cloud-hystrix-turbine</module>
+        <module>spring-cloud-hystrix-turbine-rabbitmq</module>
+
+        <!-- zuul api 网关 -->
+        <module>spring-cloud-zuul-api-gateway</module>
+        <module>spring-cloud-zuul-api-gateway-dynamic-route</module>
+        <module>spring-cloud-zuul-api-gateway-dynamic-filter</module>
+
+        <!-- sleuth -->
+        <module>spring-cloud-sleuth-trace-1</module>
+        <module>spring-cloud-sleuth-trace-2</module>
+        <module>spring-cloud-sleuth-stream-rabbit-trace-1</module>
+        <module>spring-cloud-sleuth-stream-rabbit-trace-2</module>
+
+        <!-- zipkin 服务端 -->
+        <module>spring-cloud-sleuth-zipkin-server</module>
+        <module>spring-cloud-sleuth-zipkin-stream-rabbitmq-server</module>
+        <module>spring-cloud-sleuth-zipkin-stream-rabbitmq-mysql-server</module>
+
+        <!-- rabbit mq 测试项目 -->
+        <module>spring-cloud-rabbitmq-hello</module>
+
+        <!-- stream rabbitmq 测试项目 -->
+        <module>spring-cloud-stream-rabbitmq-hello</module>
+
+        <!-- ribbon 测试项目 -->
+        <module>spring-cloud-ribbon-hystrix-test</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Camden.SR6</spring-cloud.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
